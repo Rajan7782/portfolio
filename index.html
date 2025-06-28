@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajan Raj - Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at 20% 30%, rgba(60, 20, 20, 0.8) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(60, 20, 20, 0.8) 0%, transparent 40%),
+        linear-gradient(135deg, #1a0a0a 0%, #2a0a0a 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background-color: rgba(10, 10, 20, 0.7);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 600;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255, 75, 92, 0.5);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #e0e0e0;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff4b5c;
+      background-color: rgba(255, 75, 92, 0.1);
+      text-shadow: 0 0 10px rgba(255, 75, 92, 0.5);
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      gap: 30px;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 280px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #ff4b5c;
+      box-shadow: 0 0 30px rgba(255, 75, 92, 0.3);
+      transition: 0.3s;
+    }
+
+    .hero-image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 75, 92, 0.5);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      color: #fff;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    .hero h2 {
+      font-size: 20px;
+      color: #aaa;
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .hero p {
+      font-size: 16px;
+      max-width: 600px;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 40px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .about-content,
+    .contact-container {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .about-content blockquote {
+      font-style: italic;
+      font-size: 16px;
+      margin: 30px 0;
+      padding-left: 20px;
+      border-left: 3px solid #ff4b5c;
+      color: #ccc;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .skills-container,
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .skill-category,
+    .project-card {
+      background: rgba(20, 20, 40, 0.7);
+      padding: 30px;
+      border-radius: 8px;
+      width: 45%;
+      border: 1px solid rgba(255, 75, 92, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .skill-category:hover,
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(255, 75, 92, 0.3);
+      border-color: #ff4b5c;
+    }
+
+    .skill-category h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #ff4b5c;
+    }
+
+    .skill-category ul,
+    .project-card p {
+      color: #ccc;
+    }
+
+    .skill-category ul li {
+      margin-bottom: 10px;
+      padding-left: 5px;
+    }
+
+    .skill-category ul li:hover {
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    .project-card h3 {
+      color: #fff;
+      margin-bottom: 15px;
+    }
+
+    .project-card a {
+      color: #ff4b5c;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .project-card a:hover {
+      text-shadow: 0 0 10px rgba(255, 75, 92, 0.5);
+      transform: translateX(5px);
+    }
+
+    /* 🔵 BLUE Contact Info Text */
+    .contact-info a {
+      display: block;
+      color: #4b8bff;
+      margin-bottom: 10px;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-shadow: 0 0 10px rgba(75, 139, 255, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .brand-tags {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .brand-tag {
+      padding: 8px 15px;
+      border-radius: 20px;
+      background: rgba(255, 75, 92, 0.1);
+      color: #ff4b5c;
+      border: 1px solid rgba(255, 75, 92, 0.3);
+      font-size: 14px;
+    }
+
+    .brand-tag:hover {
+      background: rgba(255, 75, 92, 0.2);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 75, 92, 0.5), transparent);
+      margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .skills-container,
+      .projects-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .skill-category,
+      .project-card {
+        width: 90%;
+      }
+
+      .hero-image img {
+        max-width: 80%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Rajan</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="divider"></div>
+
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Hi, I'm Rajan Raj</h1>
+        <h2>Electrical Engineer | Bot Developer</h2>
+        <p>I specialize in building advanced Telegram bots using the Bots.Business platform, integrating smart logic, game mechanics, and secure payment systems.</p>
+        <div class="brand-tags">
+          <span class="brand-tag">Bots.Business</span>
+          <span class="brand-tag">Telebot Creator</span>
+          <span class="brand-tag">Flutter</span>
+          <span class="brand-tag">Firebase</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://i.ibb.co/zh6sVdDc/1000003641-removebg.png" alt="Rajan Raj"/>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content">
+        <blockquote>
+          I'm Rajan Raj, an Electrical Engineer passionate about automation and bot development.
+        </blockquote>
+        <p>
+          I build Telegram bots (Mines, Color Prediction), UPI-based withdrawal systems, authentication flows, and dashboards. I focus on user-friendly, secure, and scalable systems.
+        </p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="skills">
+      <h2>Skills & Tools</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Platforms & Frameworks</h3>
+          <ul>
+            <li>Bots.Business</li>
+            <li>Telebot Creator</li>
+            <li>Flutter</li>
+            <li>Firebase</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Tools Used</h3>
+          <ul>
+            <li>Telegram</li>
+            <li>HTML/CSS</li>
+            <li>UPI Systems</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <h3>Telebot Creator</h3>
+          <p>Create Telegram bots without coding. Choose your bot and deploy it using your BotFather token.</p>
+          <a href="https://t.me/RRBOTSCREATOR_BOT" target="_blank">View Project →</a>
+        </div>
+        <div class="project-card">
+          <h3>Bots.Business Bot</h3>
+          <p>Helps you build Telegram bots using a visual interface without writing BJS code.</p>
+          <a href="https://t.me/RRBOTSCREATORBOT" target="_blank">View Project →</a>
+        </div>
+        <div class="project-card">
+          <h3>Image to Link Converter</h3>
+          <p>A tool to convert any image to a public link for use in development or bot avatars.</p>
+          <a href="https://studio--profilepicpost.us-central1.hosted.app/" target="_blank">View Project →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="contact-container">
+        <div class="contact-info">
+          <a href="mailto:rajankbihar123@gmail.com">rajankbihar123@gmail.com</a>
+          <a href="https://t.me/RRAJAN01" target="_blank">Telegram: @RRAJAN01</a>
+        </div>
+        <p>Feel free to reach out for collaborations or just to say hello!</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Rajan Raj. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
